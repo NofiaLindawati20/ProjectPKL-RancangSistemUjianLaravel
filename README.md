@@ -1,7 +1,11 @@
 **Nama :  Nofia Lindawati**
+
 **NIM : 23215034**
+
 **Prodi : Teknik Informatika / 6B**
+
 **Tempat PKL : SMK Assalafiyah Kota Tegal**
+
 
 ## 📖 Deskripsi
 Project ini merupakan bagian dari **Praktik Kerja Lapangan (PKL)** dengan judul:
