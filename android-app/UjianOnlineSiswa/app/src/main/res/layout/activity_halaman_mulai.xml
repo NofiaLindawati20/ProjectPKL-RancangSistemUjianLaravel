@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.github.com/apk/res-auto"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/green_primary"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←  Konfirmasi Ujian"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Siap Memulai Ujian!"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@android:drawable/ic_menu_agenda"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                app2:tint="@color/green_primary" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="24dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:stretchColumns="1">
+
+                    <TableRow android:paddingVertical="8dp">
+                        <TextView android:text="Mata Pelajaran" android:textColor="@color/text_muted" android:textSize="14sp"/>
+                        <TextView android:text="Matematika" android:textColor="@color/text_dark" android:textStyle="bold" android:gravity="end" android:textSize="14sp"/>
+                    </TableRow>
+
+                    <View android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <TableRow android:paddingVertical="8dp">
+                        <TextView android:text="Jenis Ujian" android:textColor="@color/text_muted" android:textSize="14sp"/>
+                        <TextView android:text="Ulangan Harian" android:textColor="@color/text_dark" android:gravity="end" android:textSize="14sp"/>
+                    </TableRow>
+
+                    <View android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <TableRow android:paddingVertical="8dp">
+                        <TextView android:text="Durasi" android:textColor="@color/text_muted" android:textSize="14sp"/>
+                        <TextView android:text="90 Menit" android:textColor="@color/text_dark" android:gravity="end" android:textSize="14sp"/>
+                    </TableRow>
+
+                    <View android:layout_height="1dp" android:background="#E0E0E0"/>
+
+                    <TableRow android:paddingVertical="8dp">
+                        <TextView android:text="Jumlah Soal" android:textColor="@color/text_muted" android:textSize="14sp"/>
+                        <TextView android:text="15 Pilihan Ganda" android:textColor="@color/text_dark" android:gravity="end" android:textSize="14sp"/>
+                    </TableRow>
+                </TableLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Baca instruksi dengan teliti sebelum memulai ujian."
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginBottom="32dp"/>
+
+            <Button
+                android:id="@+id/btnMulaiUjian"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="MULAI UJIAN"
+                android:textStyle="bold"
+                android:backgroundTint="@color/green_primary"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
