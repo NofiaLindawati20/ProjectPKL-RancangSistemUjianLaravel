@@ -1,0 +1,302 @@
+/* --- Google Fonts & Font Smoothing --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Latar sidebar hijau gelap premium khas dasbor Anda */
+    --active-green: #108553;      /* Hijau aksen aktif */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+    --sidebar-width: 260px;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Font smoothing untuk kehalusan tulisan bulat sempurna */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR NAVIGASI PERMANEN --- */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.logo-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.sidebar-menu li a i { font-size: 16px; width: 22px; }
+.sidebar-menu li a:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.05); }
+
+.sidebar-menu li.active a {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.sidebar-menu .menu-logout { margin-top: auto; }
+.sidebar-menu .menu-logout a:hover { background-color: rgba(239, 68, 68, 0.1); color: #EF4444; }
+
+/* --- MAIN CONTENT & TOPBAR --- */
+.main-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0; /* Mencegah crash layout teks meluap kesamping */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.top-bar {
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-info { font-size: 13.5px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.teacher-profile { display: flex; align-items: center; gap: 10px; }
+.teacher-profile i { font-size: 24px; color: var(--active-green); }
+.profile-text { display: flex; flex-direction: column; }
+.profile-name { font-size: 13.5px; font-weight: 600; color: var(--text-dark); line-height: 1.2; }
+.profile-role { font-size: 11px; color: var(--text-muted); }
+
+.icon-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-body { padding: 10px 40px 40px 40px; }
+.content-header h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+.section-title { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+
+/* --- GRID LAYOUT UTAMA PROFIL --- */
+.profile-layout-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    margin-top: 25px;
+    align-items: flex-start;
+}
+
+/* --- SEKSI VISUAL PROFIL (KOLOM KIRI) --- */
+.profile-left-column { display: flex; flex-direction: column; gap: 20px; }
+
+.profile-card-visual {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-large-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: rgba(16, 133, 83, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--active-green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.profile-card-visual h3 { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+
+.badge-teacher-role {
+    font-size: 11.5px;
+    background-color: #E6F4EA;
+    color: var(--active-green);
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.teacher-nip { font-size: 12.5px; color: var(--text-muted); }
+.teacher-nip i { margin-right: 4px; }
+
+/* KARTU BEBAN TUGAS MENGAJAR */
+.teaching-duty-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px;
+}
+.teaching-duty-card h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+
+.duty-list { display: flex; flex-direction: column; gap: 14px; }
+.duty-item { display: flex; flex-direction: column; gap: 2px; }
+.duty-label { font-size: 11.5px; color: var(--text-muted); font-weight: 500; }
+.duty-value { font-size: 13.5px; font-weight: 600; color: var(--text-dark); }
+.text-green { color: var(--active-green) !important; }
+
+/* --- SEKSI FORM INPUT (KOLOM KANAN) --- */
+.form-section-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 26px;
+}
+
+.form-card-header { margin-bottom: 22px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
+.form-card-header h4 { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+
+.form-grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 20px;
+    margin-bottom: 24px;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+.full-width-input { grid-column: span 2; }
+
+.input-group label { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+
+.profile-input {
+    padding: 11px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 13.5px;
+    outline: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: all 0.2s;
+    background-color: #F8FAF9;
+}
+.profile-input:focus { border-color: var(--active-green); background-color: #FFFFFF; box-shadow: 0 0 0 3px rgba(16, 133, 83, 0.08); }
+.profile-input[readonly] { background-color: #F0F4F2; color: #82928C; cursor: not-allowed; }
+
+/* TOMBOL AKSI SIMPAN */
+.btn-save-profile {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+.btn-save-profile:hover { background-color: #0b633e; }
+.btn-change-password { background-color: var(--text-dark); }
+.btn-change-password:hover { background-color: #1a2e26; }
+
+/* ==========================================================================
+   --- RESPONSIVE ENGINE (ANTI SCREEN-CRASH / BELAH DUA) ---
+   ========================================================================== */
+@media (max-width: 992px) {
+    .profile-layout-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    body { display: flex; flex-direction: row; }
+
+    /* Otomatis ciutkan lebar sidebar & sembunyikan teks menu */
+    .sidebar { 
+        width: 72px !important; min-width: 72px !important; max-width: 72px !important;      
+        padding: 30px 10px; align-items: center;  
+    }
+    .sidebar-logo span, .sidebar-menu li a span { display: none !important; }
+    .sidebar-menu li a { padding: 12px 0; justify-content: center; width: 48px; height: 48px; }
+
+    /* Halaman utama menyusut dinamis mengalah pada sisa lebar kanan */
+    .main-content { width: calc(100% - 72px); }
+    .top-bar, .content-body { padding: 20px; }
+
+    .form-grid-inputs { grid-template-columns: 1fr; }
+    .full-width-input { grid-column: span 1; }
+    .btn-save-profile { width: 100%; justify-content: center; }
+}

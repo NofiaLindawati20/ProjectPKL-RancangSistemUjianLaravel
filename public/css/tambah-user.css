@@ -1,0 +1,252 @@
+/* --- Konfigurasi Dasar & Variabel Warna Hijau - Kuning Emas --- */
+:root {
+    --bg-page: #f4f7f5;
+    --primary-green: #046A38;
+    --dark-green: #024a26;
+    --gold: #D4AF37;
+    --gold-hover: #B8901C;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body.page-background {
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    min-height: 100 screen;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 42rem; /* Sama dengan max-w-2xl */
+}
+
+/* --- Bagian Header Halaman --- */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn-back:hover {
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.header-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.header-text p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.125rem;
+}
+
+/* --- Desain Kotak Kartu Form --- */
+.form-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid rgba(4, 106, 56, 0.15);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.form-card-header {
+    padding: 1.25rem 1.5rem;
+    background-color: #fafbfc;
+    border-b: 1px solid var(--border-color);
+}
+
+.form-card-header h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-gold {
+    color: var(--gold);
+}
+
+/* --- Struktur Elemen Input --- */
+.form-body {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.relative {
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    background-color: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(4, 106, 56, 0.1);
+}
+
+/* Khusus Dropdown & Tata Letak Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.select-appearance {
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-chevron {
+    position: absolute;
+    right: 1rem;
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    color: #9ca3af;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password:hover {
+    color: var(--primary-green);
+}
+
+/* Elemen Pesan Error */
+.error-text {
+    color: #dc2626;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* --- Tombol Batal & Simpan --- */
+.form-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.btn-cancel {
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-decoration: none;
+    background-color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #f3f4f6;
+}
+
+.btn-submit {
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    background-color: var(--primary-green);
+    border-bottom: 3px solid var(--dark-green);
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-submit:hover {
+    background-color: var(--dark-green);
+}
+
+/* Aksen Efek Fokus Tambahan Menggunakan Kuning Emas */
+.form-input:focus + .select-chevron,
+.form-input:focus ~ .input-icon {
+    color: var(--gold);
+}

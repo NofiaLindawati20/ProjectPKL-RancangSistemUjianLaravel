@@ -1,0 +1,362 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-green: #0A6640;     /* Hijau Utama Kemenag */
+    --light-green: #118A55;       /* Hijau Terang Aktif */
+    --accent-yellow: #FFC83B;     /* Kuning Penanda */
+    --bg-body: #F4F7F5;           /* Background halaman luar */
+    --text-dark: #2C3E50;
+    --text-muted: #7F8C8D;
+    --border-color: #E2E8F0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- TOP HEADER NAVIGATION --- */
+.exam-header {
+    background-color: var(--primary-green);
+    color: #FFFFFF;
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.exam-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.timer-box {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- MAIN CONTAINER LAYOUT --- */
+.exam-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 340px; /* Kolom kiri besar, kolom kanan khusus menu nomor */
+    gap: 30px;
+    align-items: start;
+}
+
+/* --- KOLOM KIRI: AREA KONTEN SOAL --- */
+.question-area {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+
+.question-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.question-number-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 15px;
+}
+
+.badge-type {
+    background-color: #FFF3CD;
+    color: #856404;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn-bookmark {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-bookmark:hover {
+    background-color: #F8FAFC;
+    border-color: var(--text-muted);
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* --- PILIHAN JAWABAN (RADIO BUTTON CUSTOM) --- */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #FAFBFB;
+    transition: all 0.2s ease;
+}
+
+.option-item input[type="radio"] {
+    display: none; /* Sembunyikan radio default */
+}
+
+.option-indicator {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #CBD5E1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 20px;
+    background-color: #FFFFFF;
+    transition: all 0.2s;
+}
+
+.option-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Hover Effect */
+.option-item:hover {
+    border-color: var(--light-green);
+    background-color: #F7FAF8;
+}
+
+/* State Jika Pilihan Dipilih (Selected) */
+.option-item.selected {
+    border-color: var(--primary-green);
+    background-color: #E6F4EA;
+}
+
+.option-item.selected .option-indicator {
+    border-color: var(--primary-green);
+    background-color: var(--primary-green);
+    color: #FFFFFF;
+}
+
+/* --- NAVIGATION BUTTONS BELOW --- */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+.btn-nav {
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.btn-nav.prev {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+}
+
+.btn-nav.prev:hover {
+    background-color: #F1F5F9;
+}
+
+.btn-nav.next {
+    background-color: var(--primary-green);
+    border: none;
+    color: #FFFFFF;
+}
+
+.btn-nav.next:hover {
+    background-color: var(--light-green);
+}
+
+/* --- KOLOM KANAN: SIDEBAR BLOK NOMOR --- */
+.numbers-sidebar {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+
+.numbers-sidebar h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 Kolom kotak per baris */
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.num-box {
+    aspect-ratio: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    background-color: #F8FAFC;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Status Variasi Kotak Navigasi */
+.num-box.answered {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    color: #FFFFFF;
+}
+
+.num-box.current {
+    background-color: #FFFFFF;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+}
+
+.num-box.skipped {
+    background-color: #E2E8F0;
+    border-color: #CBD5E1;
+    color: #475569;
+}
+
+.num-box.flagged {
+    background-color: var(--accent-yellow);
+    border-color: var(--accent-yellow);
+    color: #FFFFFF;
+}
+
+.num-box:hover:not(.current) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Keterangan Informasi Warna */
+.legend-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legend-color {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+}
+
+.color-answered { background-color: var(--primary-green); }
+.color-skipped { background-color: #E2E8F0; border: 1px solid #CBD5E1; }
+.color-flagged { background-color: var(--accent-yellow); }
+
+.legend-label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.btn-finish-exam {
+    width: 100%;
+    padding: 14px;
+    background-color: #D9383A; /* Warna merah kontras pembatal/selesai */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-finish-exam:hover {
+    background-color: #BD2D2F;
+}
+
+/* RESPONSIVE LAYOUT (Jika dibuka di resolusi iPad/Tablet vertikal) */
+@media (max-width: 992px) {
+    .exam-container {
+        grid-template-columns: 1fr;
+    }
+    .numbers-sidebar {
+        order: -1; /* Pindahkan widget nomor ke atas di layar kecil */
+    }
+}

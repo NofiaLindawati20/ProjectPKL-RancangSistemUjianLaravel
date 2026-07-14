@@ -1,0 +1,155 @@
+:root {
+    --primary-green: #0a6634; /* Warna hijau khas logo kemenag/aplikasi */
+    --bg-light: #f4f6f8;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container utama agar seperti tampilan mockup web */
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+/* Ornamen gelombang hijau kuning di bagian atas */
+.header-ornament {
+    height: 12px;
+    background: linear-gradient(90deg, #f59e0b 0%, var(--primary-green) 40%, var(--primary-green) 100%);
+}
+
+.content-box {
+    padding: 40px 30px;
+}
+
+/* Efek lingkaran piala */
+.trophy-container {
+    width: 100px;
+    height: 100px;
+    background-color: #f0fdf4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.trophy-icon {
+    font-size: 50px;
+    color: #eab308; /* Warna emas piala */
+}
+
+h1 {
+    color: var(--text-dark);
+    font-size: 28px;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 30px 0;
+}
+
+/* Tabel Rincian Hasil */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 35px;
+    text-align: left;
+    background: #fafafa;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+}
+
+.info-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.label {
+    color: var(--text-muted);
+    font-weight: 500;
+    width: 45%;
+}
+
+.value {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.score-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #dc2626; /* Merah seperti di gambar */
+}
+
+.score-max {
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Desain Tombol Aksi */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #085229;
+}
+
+.btn-outline {
+    background-color: #ffffff;
+    color: var(--text-muted);
+    border: 1.5px solid #cbd5e1;
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+    color: var(--text-dark);
+}

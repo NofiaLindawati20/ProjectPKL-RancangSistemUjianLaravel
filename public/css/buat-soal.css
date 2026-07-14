@@ -1,0 +1,259 @@
+:root {
+    --bg-page: #f8fafc;
+    --border-color: #e2e8f0;
+    --primary-green: #046A38;
+    --dark-green: #024a26;
+    --amber-gold: #D4AF37;
+    --light-amber: #fef3c7;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    padding: 0 1.5rem 2rem 1.5rem;
+}
+
+/* Header Navbar */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--amber-gold);
+    margin-bottom: 1rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-back {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 0.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-primary-green {
+    background-color: var(--primary-green);
+    color: white; border: none;
+    padding: 0.6rem 1.2rem; border-radius: 0.5rem;
+    font-weight: 600; cursor: pointer;
+}
+
+.btn-secondary {
+    background: white; border: 1px solid var(--border-color);
+    padding: 0.6rem 1.2rem; border-radius: 0.5rem; cursor: pointer;
+}
+
+/* Meta Dropdowns Area */
+.meta-section {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.meta-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.meta-group select, .meta-group input {
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: #f8fafc;
+    font-size: 0.875rem;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute; left: 0.75rem; top: 32%;
+    color: var(--primary-green);
+}
+
+.input-with-icon input {
+    padding-left: 2.2rem; width: 100%;
+}
+
+/* Layout 2 Kolom */
+.content-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .content-layout { grid-template-columns: 1fr; }
+}
+
+/* Panel Card & Item List */
+.panel-card {
+    background: white; border: 1px solid var(--border-color);
+    border-radius: 0.75rem; overflow: hidden;
+}
+
+.panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem; border-bottom: 1px solid var(--border-color);
+}
+
+.btn-add {
+    padding: 0.6rem 1rem; border-radius: 0.5rem; border: none;
+    font-weight: 600; cursor: pointer; color: white; margin-left: 0.5rem;
+}
+
+.btn-pg { background-color: var(--primary-green); }
+.btn-uraian { background-color: #f59e0b; }
+
+.filter-tabs {
+    padding: 0.75rem 1.25rem; background: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    display: flex; gap: 0.5rem;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem; border: 1px solid var(--border-color);
+    background: white; border-radius: 0.5rem; cursor: pointer;
+}
+
+.tab-btn.active {
+    background: var(--primary-green); color: white; border-color: var(--primary-green);
+}
+
+/* List Soal & Detail PG */
+.soal-item {
+    padding: 1.25rem; border-bottom: 1px solid var(--border-color);
+}
+
+.soal-row-top {
+    display: flex; gap: 1rem; align-items: flex-start;
+}
+
+.soal-number { font-weight: bold; min-width: 20px; }
+
+.badge {
+    padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: bold;
+}
+
+.badge-pg { background: #e2f1e9; color: var(--primary-green); }
+.badge-uraian { background: #fef3c7; color: #d97706; }
+
+.soal-text { flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
+
+/* Container Opsi Jawaban ABCDE */
+.options-container {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.option-line {
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.35rem;
+    background-color: #f8fafc;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+}
+
+.correct-answer {
+    background-color: #ecfdf5;
+    border-color: #10b981;
+    color: #065f46;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-key {
+    background: #10b981; color: white; font-size: 0.75rem;
+    padding: 0.1rem 0.4rem; border-radius: 0.25rem;
+}
+
+.soal-points { font-size: 0.85rem; color: var(--text-muted); min-width: 50px; }
+
+.soal-actions { display: flex; gap: 0.5rem; }
+
+.btn-icon {
+    background: none; border: none; cursor: pointer; font-size: 1rem;
+}
+
+.text-edit { color: #3b82f6; }
+.text-delete { color: #ef4444; }
+.drag-handle { cursor: grab; }
+
+.panel-footer { padding: 1rem 1.25rem; background: #ecfdf5; font-size: 0.9rem; }
+
+/* Sidebar Cards (Kanan) */
+.sidebar-card {
+    background: white; border: 1px solid var(--border-color);
+    border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1rem;
+}
+
+.sidebar-card h4 { margin-bottom: 0.75rem; font-size: 0.95rem; }
+
+.summary-box { display: flex; align-items: center; gap: 1.5rem; }
+
+.circle-chart {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: conic-gradient(var(--primary-green) 70%, var(--amber-gold) 0);
+    display: flex; align-items: center; justify-content: center;
+}
+
+.circle-inner {
+    width: 55px; height: 55px; background: white; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+.big-num { font-size: 1.2rem; font-weight: bold; }
+.sub-num { font-size: 0.65rem; color: var(--text-muted); }
+
+.checkbox-group label {
+    display: block; margin-bottom: 0.6rem; font-size: 0.85rem; cursor: pointer;
+}
+
+/* Button Blocks */
+.btn-block {
+    width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: none;
+    font-weight: bold; cursor: pointer; margin-bottom: 0.5rem;
+}
+
+.btn-warning-gold { background-color: var(--amber-gold); color: #1e293b; }
+.btn-outline { background: white; border: 1px solid var(--border-color); }
+.btn-danger-link { background: none; color: #ef4444; }

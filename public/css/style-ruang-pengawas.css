@@ -1,0 +1,270 @@
+/* --- Google Fonts & Font Smoothing --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Latar sidebar hijau gelap premium khas CBT Anda */
+    --active-green: #108553;      /* Hijau aksen komponen aktif */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+    --sidebar-width: 260px;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Font smoothing untuk kehalusan visual dan sudut teks melingkar rapi */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR NAVIGASI PERMANEN --- */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.logo-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.sidebar-menu li a i { font-size: 16px; width: 22px; }
+.sidebar-menu li a:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.05); }
+
+.sidebar-menu li.active a {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.sidebar-menu .menu-logout { margin-top: auto; }
+.sidebar-menu .menu-logout a:hover { background-color: rgba(239, 68, 68, 0.1); color: #EF4444; }
+
+/* --- MAIN CONTENT & HEADER --- */
+.main-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0; /* Pengaman agar teks memotong otomatis ke bawah dan tidak mendorong layout kesamping */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.top-bar {
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-info { font-size: 13.5px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.supervisor-profile { display: flex; align-items: center; gap: 10px; }
+.supervisor-profile i { font-size: 24px; color: var(--active-green); }
+.profile-text { display: flex; flex-direction: column; }
+.profile-name { font-size: 13.5px; font-weight: 600; color: var(--text-dark); line-height: 1.2; }
+.profile-role { font-size: 11px; color: var(--text-muted); }
+
+.icon-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-body { padding: 10px 40px 40px 40px; }
+.content-header h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+.section-title { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+
+/* --- GRID KARTU RUANG UJIAN --- */
+.room-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.room-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease-in-out;
+}
+.room-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(5, 41, 25, 0.04); }
+
+/* Highlight Kartu yang Sedang Aktif Berjalan */
+.room-card.card-active { border-top: 4px solid var(--active-green); }
+
+.room-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.room-number {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background-color: #F0F4F2;
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+/* Status Badges */
+.badge-status { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 30px; display: inline-flex; align-items: center; gap: 6px; }
+.status-live { background-color: #D1FAE5; color: #065F46; }
+.status-live i { font-size: 8px; color: #10B981; }
+.status-ready { background-color: #EBF5FF; color: #1E40AF; }
+.status-closed { background-color: #F3F4F6; color: #4B5563; }
+
+.room-title { font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+.exam-name { font-size: 13px; color: var(--text-muted); font-weight: 400; margin-bottom: 20px; }
+.exam-name i { color: var(--active-green); margin-right: 2px; }
+
+/* Detail Ruangan */
+.room-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #FAFBFB;
+    border: 1px solid #EEF2F0;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+}
+
+.detail-item { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; }
+.d-label { color: var(--text-muted); font-weight: 400; }
+.d-value { color: var(--text-dark); font-weight: 600; }
+
+/* Khusus Baris Token */
+.token-box { border-top: 1px dashed var(--border-color); padding-top: 10px; margin-top: 2px; }
+.token-text { font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; color: var(--active-green); letter-spacing: 1px; }
+.token-text-muted { font-size: 13px; font-weight: 500; color: var(--text-muted); font-style: italic; }
+
+/* Tombol Masuk Ruangan */
+.btn-enter-room {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    transition: all 0.2s;
+}
+
+.btn-primary-room { background-color: var(--active-green); color: #FFFFFF; }
+.btn-primary-room:hover { background-color: #0b633e; }
+
+.btn-secondary-room { background-color: #FFFFFF; border: 1px solid var(--active-green); color: var(--active-green); }
+.btn-secondary-room:hover { background-color: rgba(16, 133, 83, 0.04); }
+
+/* Penanganan Kartu yang Dinonaktifkan */
+.room-card.card-disabled { background-color: #F9FAFA; opacity: 0.75; }
+.btn-disabled-room { background-color: #E5E7EB; color: #9CA3AF; cursor: not-allowed; }
+
+/* ==========================================================================
+   --- SYSTEM ANTI-TABRAKAN / LAYAR BELAH DUA (RESPONSIVE) ---
+   ========================================================================== */
+@media (max-width: 768px) {
+    body { display: flex; flex-direction: row; }
+
+    /* Otomatis ciutkan lebar sidebar menjadi ikon murni */
+    .sidebar { 
+        width: 72px !important; min-width: 72px !important; max-width: 72px !important;      
+        padding: 30px 10px; align-items: center;  
+    }
+    .sidebar-logo span, .sidebar-menu li a span { display: none !important; }
+    .sidebar-menu li a { padding: 12px 0; justify-content: center; width: 48px; height: 48px; }
+
+    /* Halaman utama menyusut dinamis mengalah pada sisa lebar kanan */
+    .main-content { width: calc(100% - 72px); }
+    .top-bar, .content-body { padding: 20px; }
+
+    .room-cards-grid { grid-template-columns: 1fr; gap: 16px; }
+}

@@ -1,0 +1,268 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-green: #0A6640;     /* Hijau Utama Kemenag */
+    --light-green: #118A55;       /* Hijau Terang */
+    --bg-main: #FAF8F5;           /* Warna Krem Sangat Muda sesuai gambar mobile */
+    --sidebar-bg: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --text-muted: #666666;
+    --border-card: #EAEAEA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    display: flex;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* --- SIDEBAR STYLE --- */
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-card);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-green);
+    border-bottom: 1px solid var(--border-card);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 20px 12px;
+}
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #F4F7F5;
+    color: var(--primary-green);
+}
+
+.sidebar-menu li.active a {
+    background-color: #E6F0EC;
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+/* --- MAIN CONTENT LAYOUT --- */
+.main-content {
+    margin-left: 240px; /* Memberi ruang untuk fixed sidebar */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- TOP BAR STYLE --- */
+.top-bar {
+    height: 65px;
+    background-color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-info {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.profile-circle {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+/* --- CONTENT BODY --- */
+.content-body {
+    padding: 40px;
+}
+
+.content-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+/* --- GRID CARDS LAYOUT --- */
+.exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* --- CARD STYLE --- */
+.exam-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid var(--border-card);
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.exam-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(10, 102, 64, 0.06);
+}
+
+.card-header {
+    margin-bottom: 16px;
+}
+
+.subject-tag {
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+/* Variasi Warna Label Mapel */
+.text-math { color: #118A55; }
+.text-indo { color: #D9383A; }
+.text-ipa { color: #2B6CB0; }
+.text-history { color: #B7791F; }
+.text-english { color: #6B46C1; }
+.text-biology { color: #319795; }
+
+.card-header h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.card-details {
+    margin-bottom: 20px;
+}
+
+.card-details p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-details p i {
+    width: 16px;
+    color: #A0AEC0;
+}
+
+/* --- BUTTONS INSIDE CARD --- */
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid var(--border-card);
+    padding-top: 16px;
+}
+
+.btn-start {
+    flex: 1;
+    padding: 10px 0;
+    background-color: var(--primary-green);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-start:hover {
+    background-color: var(--light-green);
+}
+
+.btn-detail {
+    font-size: 13px;
+    color: var(--light-green);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+}
+
+.btn-detail:hover {
+    text-decoration: underline;
+    color: var(--primary-green);
+}
+
+/* RESPONSIVE BREAKPOINT (Untuk layar laptop kecil/tablet) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+    .sidebar-brand span, .sidebar-menu li a span {
+        display: none;
+    }
+    .main-content {
+        margin-left: 70px;
+    }
+}

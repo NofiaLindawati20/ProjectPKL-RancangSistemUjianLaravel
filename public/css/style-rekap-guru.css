@@ -1,0 +1,315 @@
+/* --- Google Fonts & Font Smoothing --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Tema Hijau gelap premium Anda */
+    --active-green: #108553;      /* Hijau aksen aktif */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+    --sidebar-width: 260px;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Font smoothing untuk kehalusan tulisan bulat sempurna */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR NAVIGASI PERMANEN --- */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.logo-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.sidebar-menu li a i { font-size: 16px; width: 22px; }
+.sidebar-menu li a:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.05); }
+
+.sidebar-menu li.active a {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.sidebar-menu .menu-logout { margin-top: auto; }
+.sidebar-menu .menu-logout a:hover { background-color: rgba(239, 68, 68, 0.1); color: #EF4444; }
+
+/* --- MAIN CONTENT & HEADER --- */
+.main-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0; /* Pengaman agar teks memotong ke bawah saat layar sempit */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.top-bar {
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-info { font-size: 13.5px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.teacher-profile { display: flex; align-items: center; gap: 10px; }
+.teacher-profile i { font-size: 24px; color: var(--active-green); }
+.profile-text { display: flex; flex-direction: column; }
+.profile-name { font-size: 13.5px; font-weight: 600; color: var(--text-dark); line-height: 1.2; }
+.profile-role { font-size: 11px; color: var(--text-muted); }
+
+.icon-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-body { padding: 10px 40px 40px 40px; }
+
+.content-header-rekap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+.content-header-rekap h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+.section-title { font-size: 14px; color: var(--text-muted); margin-top: 2px; max-width: 650px; }
+
+/* TOMBOL EXPORT DATA */
+.export-actions { display: flex; gap: 10px; }
+.btn-export {
+    border: none;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+.btn-excel { background-color: #E6F4EA; color: var(--active-green); }
+.btn-excel:hover { background-color: #d2ebd9; }
+.btn-pdf { background-color: #FEE2E2; color: #DC2626; }
+.btn-pdf:hover { background-color: #fcd0d0; }
+
+/* --- GRID RINGKASAN STATISTIK --- */
+.rekap-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.r-stats-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.r-card-info { display: flex; flex-direction: column; gap: 4px; }
+.r-label { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+.r-number { font-size: 26px; font-weight: 700; color: var(--text-dark); letter-spacing: -0.5px; }
+.r-sub { font-size: 12px; font-weight: 400; color: var(--text-muted); }
+
+.r-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 18px; }
+.bg-light-green { background-color: rgba(16, 133, 83, 0.08); color: var(--active-green); }
+.bg-light-blue { background-color: #EBF5FF; color: #2563EB; }
+.bg-light-red { background-color: #FEE2E2; color: #DC2626; }
+
+/* --- FILTER DATA BAR --- */
+.rekap-filter-bar {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 22px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+.f-item { display: flex; flex-direction: column; gap: 6px; }
+.select-box-item { width: 40%; }
+.search-box-item { width: 60%; }
+
+.rekap-filter-bar label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+.rekap-select {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 13.5px;
+    outline: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    background-color: #F8FAF9;
+}
+
+.rekap-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    border-radius: 10px;
+    background-color: #F8FAF9;
+}
+.rekap-search input { border: none; outline: none; font-size: 13.5px; width: 100%; background: transparent; }
+.rekap-search i { color: var(--text-muted); }
+
+/* --- TABLE SECTION --- */
+.table-section {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 26px;
+}
+.table-headline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.table-headline h4 { font-size: 15px; font-weight: 600; }
+.kbm-badge { font-size: 12px; background-color: #FFF3CD; color: #856404; padding: 4px 12px; border-radius: 30px; font-weight: 600; }
+
+.table-responsive { width: 100%; overflow-x: auto; }
+.rekap-table { width: 100%; border-collapse: collapse; }
+
+.rekap-table th {
+    background-color: #F8FAF9;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.rekap-table td { padding: 15px 14px; font-size: 14px; border-bottom: 1px solid #F0F4F2; color: var(--text-dark); }
+.rekap-table tr:last-child td { border-bottom: none; }
+
+.student-identity { display: flex; flex-direction: column; gap: 1px; }
+.student-identity .name { font-weight: 600; }
+.student-identity .nisn { font-size: 12px; color: var(--text-muted); font-family: monospace; }
+
+.weight-500 { font-weight: 500; }
+.weight-600 { font-weight: 600; }
+
+.final-score { font-size: 15px; font-weight: 700; }
+.final-score.status-high { color: var(--active-green); }
+.final-score.status-remed { color: #DC2626; }
+
+/* Kapsul Lulus & Gagal */
+.kapsul-lulus, .kapsul-remed { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-align: center; }
+.kapsul-lulus { background-color: #E6F4EA; color: var(--active-green); }
+.kapsul-remed { background-color: #FEE2E2; color: #DC2626; }
+
+/* ==========================================================================
+   --- RESPONSIVE ENGINE (ANTI SCREEN-CRASH / BELAH DUA) ---
+   ========================================================================== */
+@media (max-width: 768px) {
+    body { display: flex; flex-direction: row; }
+
+    /* Otomatis ciutkan lebar sidebar & sembunyikan teks menu */
+    .sidebar { 
+        width: 72px !important; min-width: 72px !important; max-width: 72px !important;      
+        padding: 30px 10px; align-items: center;  
+    }
+    .sidebar-logo span, .sidebar-menu li a span { display: none !important; }
+    .sidebar-menu li a { padding: 12px 0; justify-content: center; width: 48px; height: 48px; }
+
+    /* Halaman utama menyusut dinamis mengalah pada sisa lebar kanan */
+    .main-content { width: calc(100% - 72px); }
+    .top-bar, .content-body { padding: 20px; }
+
+    .content-header-rekap { flex-direction: column; align-items: stretch; gap: 15px; }
+    .export-actions { width: 100%; }
+    .btn-export { flex: 1; justify-content: center; }
+
+    .rekap-stats-grid { grid-template-columns: 1fr; gap: 12px; }
+    .rekap-filter-bar { flex-direction: column; align-items: stretch; gap: 14px; }
+    .select-box-item, .search-box-item { width: 100%; }
+    .table-headline { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

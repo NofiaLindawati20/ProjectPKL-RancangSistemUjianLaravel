@@ -1,0 +1,294 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-green: #0A6640;   /* Hijau Tua Kemenag */
+    --light-green: #118A55;     /* Hijau Terang Aktif */
+    --accent-yellow: #FFC83B;   /* Kuning Aksen */
+    --bg-light: #F7FAF8;        /* Background utama */
+    --text-dark: #2C3E50;
+    --text-muted: #7F8C8D;
+    --border-color: #E2E8F0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Elemen Dekoratif Background (Wavy Shapes) --- */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0.15;
+}
+
+.shape-top-left {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-yellow));
+    top: -200px;
+    left: -200px;
+}
+
+.shape-bottom-right {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, var(--accent-yellow), var(--primary-green));
+    bottom: -150px;
+    right: -150px;
+}
+
+/* --- Login Card Container --- */
+.login-container {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 460px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(10, 102, 64, 0.08);
+    border: 1px solid rgba(10, 102, 64, 0.05);
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* --- Logo --- */
+.logo-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-placeholder {
+    width: 70px;
+    height: 70px;
+    background-color: #E6F4EA;
+    border: 2px solid var(--primary-green);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-green);
+    font-size: 32px;
+    transform: rotate(45deg);
+}
+.logo-placeholder i {
+    transform: rotate(-45deg); /* Mengembalikan posisi icon agar lurus */
+}
+
+/* --- Typography --- */
+h2 {
+    color: var(--primary-green);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+h3 {
+    color: var(--light-green);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* --- Input Fields --- */
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background-color: #FAFBFB;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--light-green);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(17, 138, 85, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.toggle-password:hover {
+    color: var(--primary-green);
+}
+
+/* --- Switch User (Role Selection) --- */
+.role-selection-wrapper {
+    text-align: left;
+    margin-top: 24px;
+    margin-bottom: 15px;
+}
+
+.role-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.switch-user-container {
+    display: flex;
+    position: relative;
+    background-color: #F1F5F2;
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.switch-user-container input[type="radio"] {
+    display: none; /* Sembunyikan radio button bawaan browser */
+}
+
+.role-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+/* Base Slider */
+.tab-slider {
+    position: absolute;
+    height: calc(100% - 8px);
+    width: calc(25% - 6px); /* 4 Pilihan, jadi 100% / 4 = 25% */
+    background-color: var(--primary-green);
+    border-radius: 8px;
+    top: 4px;
+    left: 4px;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: 0 4px 10px rgba(10, 102, 64, 0.2);
+}
+
+/* Logika Pergerakan Slider & Perubahan Warna Teks */
+#siswa:checked ~ .tab-slider { transform: translateX(0); }
+#guru:checked ~ .tab-slider { transform: translateX(100%); }
+#admin:checked ~ .tab-slider { transform: translateX(200%); }
+#pengawas:checked ~ .tab-slider { transform: translateX(300%); }
+
+#siswa:checked ~ label[for="siswa"],
+#guru:checked ~ label[for="guru"],
+#admin:checked ~ label[for="admin"],
+#pengawas:checked ~ label[for="pengawas"] {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* --- Footer Links & Button --- */
+.form-footer-links {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.forgot-password {
+    font-size: 13px;
+    color: var(--light-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: var(--primary-green);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-green);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(10, 102, 64, 0.15);
+}
+
+.btn-submit:hover {
+    background-color: var(--light-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 138, 85, 0.25);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* --- Card Footer --- */
+.card-footer {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.card-footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.card-footer a {
+    color: var(--light-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+    color: var(--primary-green);
+}

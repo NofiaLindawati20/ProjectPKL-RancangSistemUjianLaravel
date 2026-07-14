@@ -1,0 +1,394 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Hijau tua gelap identik */
+    --active-green: #108553;      /* Hijau aksen aktif */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+    --sidebar-width: 260px;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* PENYELARASAN FONT: Menghilangkan efek kasar/tajam agar bulat halus seperti gambar */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+ 
+/* Mengatur Body agar Sidebar dan Konten Berdampingan Tanpa Tumpuk */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;          /* Memaksa sidebar & halaman utama berdampingan murni */
+    min-height: 100vh;
+    width: 100vw;           /* Mengunci lebar total tepat sesuai lebar monitor */
+    overflow-x: hidden;     /* Mencegah scrollbar horizontal siluman muncul */
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR: TETAP DISERTAI PENGUNCI UKURAN --- */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width); /* KUNCI 1: Mencegah sidebar mengecil/kempes akibat tekanan */
+    max-width: var(--sidebar-width); /* KUNCI 2: Membatasi agar sidebar tidak meluap lebih dari kapasitasnya */
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    position: sticky;       
+    top: 0;                 
+    height: 100vh;          
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Kotak Ikon Logo EI di Atas */
+.logo-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+/* --- SINKRONISASI ELEMEN MENU UTAMA --- */
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+    position: relative; /* Kunci penataan posisi */
+}
+
+.sidebar-menu li a i {
+    font-size: 18px;    /* Sedikit diperbesar agar ikon terlihat tegas saat sendirian */
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;     /* Mencegah ikon gepeng saat berhimpitan */
+}
+
+/* Mengatur transisi halus untuk teks menu di dalam span */
+.sidebar-menu li a span {
+    white-space: nowrap;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease;
+}
+
+/* Efek Hover Menu */
+.sidebar-menu li a:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Menu Dashboard Aktif (Persis Seperti Gambar) */
+.sidebar-menu li.active a {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    font-weight: 500; /* Menggunakan ketebalan medium agar tidak kaku */
+}
+
+/* Menu Keluar Dipaksa Berada di Paling Bawah Sidebar */
+.sidebar-menu .menu-logout {
+    margin-top: auto;
+}
+
+.sidebar-menu .menu-logout a:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+/* --- MAIN KONTEN --- */
+.main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.top-bar {
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-info { font-size: 13.5px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.admin-profile i { font-size: 20px; color: var(--active-green); }
+
+.icon-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Area */
+.content-body { padding: 10px 40px 40px 40px; }
+.content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.content-header h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+.section-title { font-size: 14px; color: var(--text-muted); }
+
+/* Tombol Aksi "Buat Paket Soal" */
+.btn-create-soal {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(16, 133, 83, 0.12);
+    transition: background-color 0.2s;
+}
+.btn-create-soal:hover { background-color: #0b633e; }
+
+/* --- GRID STATISTIK (1 BARIS KOKOH) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stats-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-inner { display: flex; justify-content: space-between; align-items: center; }
+.stats-label { font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
+
+.icon-card-bg {
+    font-size: 32px;
+    color: #E2EAE6;
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    opacity: 0.6;
+}
+
+.stats-number { font-size: 26px; font-weight: 700; color: var(--text-dark); position: relative; letter-spacing: -0.5px; }
+.unit-text { font-size: 13px; font-weight: 400; color: var(--text-muted); letter-spacing: 0px; }
+
+/* --- TABEL DATA --- */
+.table-section {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 26px;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+.table-controls h4 { font-size: 15px; font-weight: 600; }
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 10px;
+    width: 280px;
+}
+.search-box input { border: none; outline: none; font-size: 13px; width: 100%; background: transparent; }
+.search-box i { color: var(--text-muted); font-size: 13px; }
+
+.report-table { width: 100%; border-collapse: collapse; }
+.report-table th {
+    background-color: #F8FAF9;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+.report-table td { padding: 16px 14px; font-size: 14px; border-bottom: 1px solid #F0F4F2; color: var(--text-dark); }
+.report-table tr:last-child td { border-bottom: none; }
+
+.exam-title-cell { font-weight: 600; color: var(--text-dark); }
+.bold-text { font-weight: 600; }
+.text-mono { font-family: monospace; font-weight: 600; color: var(--text-muted); font-size: 13px; }
+
+/* Warna Status */
+.text-green { color: #10B981 !important; }
+.text-blue { color: #3B82F6 !important; }
+.text-amber { color: #D97706 !important; }
+
+/* Badges */
+.badge-status { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.status-done { background-color: #D1FAE5; color: #065F46; }
+.status-draft { background-color: #F1F5F9; color: #475569; }
+
+/* Tombol Aksi Baris Tabel */
+.action-buttons { display: flex; justify-content: center; gap: 6px; }
+.btn-table {
+    border: 1px solid var(--border-color);
+    background-color: #FFFFFF;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+.btn-edit { color: #0284C7; }
+.btn-edit:hover { background-color: #E0F2FE; border-color: #0284C7; }
+.btn-delete { color: #EF4444; }
+.btn-delete:hover { background-color: #FEE2E2; border-color: #EF4444; }
+
+/* KONDISI DIBAWAH 768PX (SAAT LAYAR DIBAGI 2 / SPLIT SCREEN) */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: row; 
+    }
+
+    /* 1. AKSI NYATA: Ciutkan Ukuran Sidebar Menjadi Kotak Ikon */
+    .sidebar { 
+        width: 72px !important;          
+        min-width: 72px !important;      
+        max-width: 72px !important;      
+        padding: 30px 10px;   
+        align-items: center;  
+    }
+
+    /* 2. KUNCI UTAMA: Hilangkan teks nama aplikasi dan teks menu sepenuhnya */
+    .sidebar-logo span,
+    .sidebar-menu li a span {
+        display: none !important; 
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* 3. Atur ulang menu li dan jangkar (a) agar ikon pas di tengah-tengah */
+    .sidebar-menu {
+        width: 100%;
+        align-items: center;
+    }
+
+    .sidebar-menu li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar-menu li a {
+        padding: 12px 0;
+        justify-content: center;
+        gap: 0;
+        border-radius: 12px;
+        width: 48px; /* Membuat background active berbentuk kotak rounded yang rapi */
+        height: 48px;
+    }
+    
+    .sidebar-menu li a i {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    /* 4. Konten Utama mengalah secara presisi ke sisi kanan */
+    .main-content { 
+        width: calc(100% - 72px);
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .top-bar {
+        padding: 0 20px;
+    }
+
+    .content-body { 
+        padding: 20px; 
+    }
+
+    /* Ubah Grid Statistik menjadi 1 Kolom Vertikal Kebawah */
+    .stats-grid { 
+        grid-template-columns: 1fr; 
+        gap: 12px;
+    }
+
+    /* Biarkan Teks Sapaan Panjang Turun Kebawah dengan Rapi (Anti-Overlap) */
+    .welcome-box h1 {
+        font-size: 20px;
+        white-space: normal; 
+        line-height: 1.3;
+    }
+}

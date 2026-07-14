@@ -1,0 +1,476 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Hijau tua gelap identik */
+    --active-green: #108553;      /* Hijau aksen aktif */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+    --sidebar-width: 260px;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* PENYELARASAN FONT: Menghilangkan efek kasar/tajam agar bulat halus seperti gambar */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+ 
+/* Mengatur Body agar Sidebar dan Konten Berdampingan Tanpa Tumpuk */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;          /* Memaksa sidebar & halaman utama berdampingan murni */
+    min-height: 100vh;
+    width: 100vw;           /* Mengunci lebar total tepat sesuai lebar monitor */
+    overflow-x: hidden;     /* Mencegah scrollbar horizontal siluman muncul */
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR: TETAP DISERTAI PENGUNCI UKURAN --- */
+.sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width); /* KUNCI 1: Mencegah sidebar mengecil/kempes akibat tekanan */
+    max-width: var(--sidebar-width); /* KUNCI 2: Membatasi agar sidebar tidak meluap lebih dari kapasitasnya */
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    position: sticky;       
+    top: 0;                 
+    height: 100vh;          
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Kotak Ikon Logo EI di Atas */
+.logo-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+/* --- SINKRONISASI ELEMEN MENU UTAMA --- */
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 400;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+    position: relative; /* Kunci penataan posisi */
+}
+
+.sidebar-menu li a i {
+    font-size: 18px;    /* Sedikit diperbesar agar ikon terlihat tegas saat sendirian */
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;     /* Mencegah ikon gepeng saat berhimpitan */
+}
+
+/* Mengatur transisi halus untuk teks menu di dalam span */
+.sidebar-menu li a span {
+    white-space: nowrap;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease;
+}
+
+/* Efek Hover Menu */
+.sidebar-menu li a:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+/* Menu Dashboard Aktif (Persis Seperti Gambar) */
+.sidebar-menu li.active a {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    font-weight: 500; /* Menggunakan ketebalan medium agar tidak kaku */
+}
+
+/* Menu Keluar Dipaksa Berada di Paling Bawah Sidebar */
+.sidebar-menu .menu-logout {
+    margin-top: auto;
+}
+
+.sidebar-menu .menu-logout a:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+/* --- CONTENT AREA --- */
+.main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.top-bar {
+    height: 75px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-info { font-size: 13.5px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.admin-profile i { font-size: 20px; color: var(--active-green); }
+
+.icon-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Halaman & Ekspor */
+.content-body { padding: 10px 40px 40px 40px; }
+.content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.content-header h1 { font-size: 24px; font-weight: 700; }
+.section-title { font-size: 14px; color: var(--text-muted); }
+
+.action-header-buttons { display: flex; gap: 10px; }
+
+.btn-export {
+    border: none;
+    padding: 10px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-pdf { background-color: #FEE2E2; color: #DC2626; }
+.btn-pdf:hover { background-color: #FCA5A5; }
+.btn-excel { background-color: #D1FAE5; color: #065F46; }
+.btn-excel:hover { background-color: #A7F3D0; }
+
+/* --- KOTAK INFO STATISTIK (DIPAKSA 1 BARIS MUTLAK) --- */
+.stats-grid {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr) memaksa 4 kolom sejajar rata */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; /* Mengurangi sedikit jarak antar kotak agar muat satu baris */
+    margin-bottom: 30px;
+}
+
+.stats-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 18px; /* Sedikit dikurangi dari 22px agar teks tidak berdesakan */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-inner { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.stats-label { 
+    font-size: 13px; /* Mengecilkan teks label sedikit */
+    font-weight: 500; 
+    color: var(--text-muted); 
+    white-space: nowrap; /* Mencegah judul teks turun ke bawah (tetap 1 baris) */
+}
+
+.icon-card-bg {
+    font-size: 32px; /* Mengecilkan ukuran ikon background */
+    color: #E2EAE6;
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    opacity: 0.6;
+}
+
+.stats-number { 
+    font-size: 26px; /* Menyesuaikan ukuran angka agar pas di resolusi laptop */
+    font-weight: 700; 
+    color: var(--text-dark); 
+    position: relative; 
+}
+
+.unit-text { 
+    font-size: 12px; 
+    font-weight: 500; 
+    color: var(--text-muted); 
+}
+
+
+/* --- RESPONSIVE MEDIA QUERY (DIPERBARUI) --- */
+@media (max-width: 1200px) {
+    /* Kita HAPUS perintah 'grid-template-columns: repeat(2, 1fr)' di sini */
+    /* Ini memastikan di resolusi tablet/laptop tanggung, kotak STATIS tetap 1 baris */
+    .stats-number {
+        font-size: 22px; /* Angka otomatis mengecil sedikit lagi agar tidak pecah layoutnya */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hanya ketika dibuka di Handphone (layar sangat kecil), kotak baru boleh tersusun ke bawah */
+    .stats-grid { 
+        grid-template-columns: 1fr; 
+    }
+    .content-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 15px; 
+    }
+    .table-controls { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: flex-start; 
+    }
+    .search-box { 
+        width: 100%; 
+    }
+}
+/* --- SEKSI TABEL LAPORAN --- */
+.table-section {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 26px;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.table-controls h4 { font-size: 15px; font-weight: 600; }
+
+/* Kotak Cari */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 10px;
+    width: 260px;
+}
+.search-box input { border: none; outline: none; font-size: 13px; width: 100%; }
+.search-box i { color: var(--text-muted); font-size: 13px; }
+
+/* Desain Inti Tabel */
+.report-table { width: 100%; border-collapse: collapse; }
+
+.report-table th {
+    background-color: #F8FAF9;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.report-table td {
+    padding: 16px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #F0F4F2;
+    color: var(--text-dark);
+}
+
+.report-table tr:last-child td { border-bottom: none; }
+
+.exam-title-cell { font-weight: 600; color: var(--text-dark); }
+.bold-text { font-weight: 600; }
+.text-muted { color: var(--text-muted); }
+.text-mono { font-family: monospace; font-weight: 600; color: var(--text-muted); }
+
+/* Pewarnaan Angka Parameter */
+.text-green { color: #10B981 !important; }
+.text-red { color: #EF4444 !important; }
+.text-blue { color: #3B82F6 !important; }
+
+/* Status Sesi Kapsul */
+.badge-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.status-done { background-color: #D1FAE5; color: #065F46; }
+.status-canceled { background-color: #FEE2E2; color: #991B1B; }
+
+/* --- RESPONSIVE MEDIA QUERY (SUDAH DIPERBAIKI TOTAL) --- */
+
+@media (max-width: 1200px) {
+    .stats-number { 
+        font-size: 22px; 
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+}
+
+/* ==========================================================================
+   --- RESPONSIVE MEDIA QUERY (PENGUNCI MODAL IKON & ANTI-TABRAKAN) ---
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .stats-number { 
+        font-size: 22px; 
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+}
+
+/* KONDISI DIBAWAH 768PX (SAAT LAYAR DIBAGI 2 / SPLIT SCREEN) */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: row; 
+    }
+
+    /* 1. AKSI NYATA: Ciutkan Ukuran Sidebar Menjadi Kotak Ikon */
+    .sidebar { 
+        width: 72px !important;          
+        min-width: 72px !important;      
+        max-width: 72px !important;      
+        padding: 30px 10px;   
+        align-items: center;  
+    }
+
+    /* 2. KUNCI UTAMA: Hilangkan teks nama aplikasi dan teks menu sepenuhnya */
+    .sidebar-logo span,
+    .sidebar-menu li a span {
+        display: none !important; 
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* 3. Atur ulang menu li dan jangkar (a) agar ikon pas di tengah-tengah */
+    .sidebar-menu {
+        width: 100%;
+        align-items: center;
+    }
+
+    .sidebar-menu li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sidebar-menu li a {
+        padding: 12px 0;
+        justify-content: center;
+        gap: 0;
+        border-radius: 12px;
+        width: 48px; /* Membuat background active berbentuk kotak rounded yang rapi */
+        height: 48px;
+    }
+    
+    .sidebar-menu li a i {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    /* 4. Konten Utama mengalah secara presisi ke sisi kanan */
+    .main-content { 
+        width: calc(100% - 72px);
+        flex-grow: 1;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .top-bar {
+        padding: 0 20px;
+    }
+
+    .content-body { 
+        padding: 20px; 
+    }
+
+    /* Ubah Grid Statistik menjadi 1 Kolom Vertikal Kebawah */
+    .stats-grid { 
+        grid-template-columns: 1fr; 
+        gap: 12px;
+    }
+
+    /* Biarkan Teks Sapaan Panjang Turun Kebawah dengan Rapi (Anti-Overlap) */
+    .welcome-box h1 {
+        font-size: 20px;
+        white-space: normal; 
+        line-height: 1.3;
+    }
+}

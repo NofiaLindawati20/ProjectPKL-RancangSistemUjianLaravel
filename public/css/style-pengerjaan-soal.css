@@ -1,0 +1,249 @@
+/* --- Google Fonts & Font Smoothing --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark-green: #052919; /* Tema Hijau Gelap Premium Aplikasi Anda */
+    --active-green: #108553;      /* Hijau Aksen Utama */
+    --warning-yellow: #F59E0B;    /* Warna Ragu-ragu */
+    --bg-light: #F4F7F5;           
+    --text-dark: #0D1B15;          
+    --text-muted: #6B7A74;         
+    --border-color: #E2EAE6;       
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Font smoothing untuk kehalusan sudut-sudut teks membulat rapi */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* --- TOP NAVBAR SOAL --- */
+.exam-top-bar {
+    background-color: var(--primary-dark-green);
+    color: #FFFFFF;
+    height: 75px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+.exam-info-left { display: flex; align-items: center; gap: 14px; }
+.exam-badge-icon { width: 40px; height: 40px; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 18px; }
+.exam-meta { display: flex; flex-direction: column; }
+.exam-title { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+.exam-subject { font-size: 11.5px; color: #A2B5AD; }
+
+.exam-info-right { display: flex; align-items: center; gap: 24px; }
+
+/* Kotak Sisa Waktu */
+.timer-box { background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); padding: 6px 16px; border-radius: 12px; display: flex; align-items: center; gap: 10px; }
+.timer-box i { font-size: 18px; color: #FCA5A5; }
+.timer-text { display: flex; flex-direction: column; }
+.timer-label { font-size: 10px; color: #A2B5AD; text-transform: uppercase; font-weight: 500; }
+.timer-countdown { font-size: 15px; font-weight: 700; font-family: 'Courier New', Courier, monospace; color: #FEE2E2; }
+.animate-pulse { animation: timerPulse 2s infinite; }
+@keyframes timerPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+.student-profile-tab { display: flex; flex-direction: column; text-align: right; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 20px; }
+.student-name { font-size: 13.5px; font-weight: 600; }
+.student-nis { font-size: 11px; color: #A2B5AD; }
+
+/* --- CONTANER AREA UTAMA --- */
+.exam-layout-container {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    padding: 30px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* --- KOLOM KIRI: AREA PENGERJAAN SOAL --- */
+.question-working-area {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 14px; margin-bottom: 24px; }
+.current-number-badge { font-size: 14px; font-weight: 700; color: var(--primary-dark-green); }
+.question-type-badge { font-size: 11.5px; background-color: #F0F4F2; color: var(--text-muted); padding: 4px 12px; border-radius: 6px; font-weight: 500; }
+
+.question-statement-box { font-size: 15.5px; line-height: 1.6; color: var(--text-dark); margin-bottom: 30px; }
+
+/* Format khusus font persamaan matematika */
+.math { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 600; color: #042416; }
+
+/* --- PILIHAN JAWABAN (RADIO BUTTON CUSTOM) --- */
+.options-list-container { display: flex; flex-direction: column; gap: 14px; margin-bottom: 35px; }
+
+.option-item-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #FDFDFD;
+}
+.option-item-card:hover { border-color: var(--active-green); background-color: rgba(16, 133, 83, 0.02); }
+
+.radio-hidden { display: none; }
+
+.option-alphabet {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background-color: #FFFFFF;
+    transition: all 0.2s;
+}
+
+.option-text-content { font-size: 14.5px; color: var(--text-dark); }
+
+/* Keadaan Pilihan saat Terpilih (Checked) */
+.option-selected {
+    border-color: var(--active-green) !important;
+    background-color: #F0F9F5 !important;
+}
+.option-selected .option-alphabet {
+    background-color: var(--active-green);
+    color: #FFFFFF;
+    border-color: var(--active-green);
+}
+
+/* --- BAR TOMBOL NAVIGASI BAWAH --- */
+.action-navigation-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 24px; margin-top: 10px; }
+
+.btn-nav {
+    padding: 11px 22px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+.btn-nav:hover { background-color: #F0F4F2; }
+.btn-next { background-color: var(--active-green); color: #FFFFFF; border-color: var(--active-green); }
+.btn-next:hover { background-color: #0b633e; }
+
+/* Checkbox Kustom Ragu-Ragu */
+.btn-ragu-checkbox { cursor: pointer; }
+.btn-ragu-checkbox input { display: none; }
+.ragu-custom-box { padding: 11px 22px; font-size: 13.5px; font-weight: 600; border: 1px solid #FFEBA8; background-color: #FFFDF5; color: #B45309; border-radius: 10px; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+.btn-ragu-checkbox input:checked + .ragu-custom-box { background-color: var(--warning-yellow); color: #FFFFFF; border-color: var(--warning-yellow); }
+
+/* --- KOLOM KANAN: SIDEBAR NOMOR GRID --- */
+.exam-sidebar-navigation {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+.sidebar-nav-header h4 { font-size: 14px; font-weight: 600; }
+.answered-counter { font-size: 11.5px; color: var(--text-muted); }
+
+/* Grid Layout Kotak Nomor */
+.numbers-grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.num-box {
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid var(--border-color);
+}
+
+/* Berbagai Status Warna Kotak Nomor */
+.status-unanswered { background-color: #FFFFFF; color: var(--text-dark); }
+.status-unanswered:hover { background-color: #F0F4F2; }
+
+.status-answered { background-color: #E6F4EA; color: var(--active-green); border-color: #C2E7D0; }
+.status-doubtful { background-color: #FEF3C7; color: #D97706; border-color: #FDE68A; }
+
+.status-current {
+    background-color: var(--primary-dark-green) !important;
+    color: #FFFFFF !important;
+    border-color: var(--primary-dark-green) !important;
+    box-shadow: 0 4px 10px rgba(5, 41, 25, 0.15);
+}
+
+/* Legenda Penunjuk Bawah */
+.nav-legend-box { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding: 14px 0; border-top: 1px dashed var(--border-color); margin-bottom: 20px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-muted); }
+.leg-color { width: 14px; height: 14px; border-radius: 4px; border: 1px solid var(--border-color); }
+
+/* Tombol Selesai Ujian */
+.btn-finish-exam { width: 100%; background-color: #111C17; color: #FFFFFF; border: none; padding: 12px; font-size: 13.5px; font-weight: 600; border-radius: 10px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; transition: background-color 0.2s; }
+.btn-finish-exam:hover { background-color: #EF4444; } /* Berubah merah saat hover untuk konfirmasi psikologis keseriusan aksi */
+
+/* ==========================================================================
+   --- SYSTEM ANTI-TABRAKAN LAYAR (RESPONSIVE ENGINE) ---
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Desain melipat menjadi 1 kolom vertikal rapi jika dibuka berdampingan/layar kecil */
+    .exam-layout-container { grid-template-columns: 1fr; padding: 20px; }
+    .exam-sidebar-navigation { position: relative; top: 0; }
+}
+
+@media (max-width: 600px) {
+    .exam-top-bar { padding: 0 16px; }
+    .student-profile-tab { display: none; } /* Sembunyikan profil teks di layar hp ketat */
+    .question-working-area { padding: 20px; }
+    .action-navigation-bar { flex-direction: column; gap: 14px; }
+    .btn-nav, .btn-ragu-checkbox, .ragu-custom-box { width: 100%; justify-content: center; }
+    .numbers-grid-container { grid-template-columns: repeat(6, 1fr); }
+}
